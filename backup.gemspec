@@ -37,7 +37,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'dropbox-sdk', '= 1.5.1'
   gem.add_dependency 'equalizer', '= 0.0.9'
   gem.add_dependency 'excon', '= 0.44.4'
-  gem.add_dependency 'faraday', '= 0.8.8'
+  gem.add_dependency 'faraday', '~> 0.9' # patched
   gem.add_dependency 'fission', '= 0.5.0'
   gem.add_dependency 'flowdock', '= 0.4.0'
   gem.add_dependency 'fog', '= 1.28.0'
@@ -88,4 +88,5 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'unf', '= 0.1.3'
   gem.add_dependency 'unf_ext', '= 0.0.6'
   gem.add_dependency 'xml-simple', '= 1.1.4'
+  gem.add_dependency 'google_drive', '~> 1.0'
 end
