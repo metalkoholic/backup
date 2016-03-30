@@ -42,7 +42,7 @@ module Backup
             folder = @session.collection_by_title(path).create_subcollection(package.time)
             @session.collection_by_title(path).subcollection_by_title(folder.title).add(file)
           else
-            dir = @session.files.select {|f| f.id == folder_id}.last
+            dir = @session.file_by_id(folder_id)
             folder = dir.create_subcollection(package.time)
             new_child = @session.drive.children.insert.request_schema.new('id' => file.id)
             @session.execute!(api_method:  @session.drive.children.insert, body_object: new_child, parameters:  {folderId: folder.id, childId: file.id})
@@ -59,7 +59,7 @@ module Backup
         if folder_id.nil?
           dir = @session.collection_by_title(path)
         else
-          dir = @session.files.select {|f| f.id == folder_id}.last
+          dir = @session.file_by_id(folder_id)
         end
         file = dir.subcollection_by_title(package.time)
         dir.remove(file)
